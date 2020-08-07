@@ -16,15 +16,16 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-let MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+app.use(require('./routes/api.js'));
+app.use(require('./routes/views.js'));
+
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useFindAndModify: false
 });
 
-app.use(require('./routes/api.js'));
-app.use(require('./routes/views.js'));
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
