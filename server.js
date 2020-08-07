@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(require('./routes/api.js'));
+app.use(require('./routes/apiRoutes.js'));
 app.use(require('./routes/views.js'));
 
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
