@@ -16,9 +16,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.use(require('./routes/apiRoutes.js'));
-app.use(require('./routes/views.js'));
-
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
 mongoose.connect(MONGODB_URI, {
@@ -26,6 +23,8 @@ mongoose.connect(MONGODB_URI, {
     useFindAndModify: false
 });
 
+app.use(require('./routes/apiRoutes.js'));
+app.use(require('./routes/views.js'));
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);

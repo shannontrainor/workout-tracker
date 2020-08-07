@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Workout = require("../models/workout");
 const { db } = require("../models/workout");
+const { Router } = require("express");
 
 
 //add to previous
@@ -50,3 +51,4 @@ router.put("/api/workout/:id", (req,res) => {
 });
 
 
+module.exports = router;
