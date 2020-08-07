@@ -16,9 +16,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-let MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/workout";
+let MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
 
-mongoose.connect(MONGO_URI, {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useFindAndModify: false
 });
